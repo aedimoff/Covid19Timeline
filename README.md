@@ -1,7 +1,7 @@
-# PandemicTimeline
+# Covid19Timeline
 ### Background
 
-The Pandemic Timeline presents a historical visualization of the Covid-19 pandemic in the USA. User interface provides a color coded map that changes color by state based on number of active cases at a currently selected time period. Users will be able to move a slider to toggle between dates and watch as map colors change in correlation with geographical statistics. The map will also serve as a record for significant dates in the development of the Covid-19 pandemic and recover by presenting randomized news headlines based on currently selected date.
+This timeline presents a historical visualization of the Covid-19 pandemic in the USA. User interface provides a color coded map that changes color by state based on number of active cases at a currently selected time period. Users will be able to move a slider to toggle between dates and watch as map colors change in correlation with geographical statistics. The map will also serve as a record for significant dates in the development of the Covid-19 pandemic and recover by presenting randomized news headlines based on currently selected date.
 
 ### Functionality & MVP
 
@@ -10,7 +10,6 @@ Users will be able to:
 -   [ ] View color coded statistical data based on location
 -   [ ] Toggle time period using a slider to change map view
 -   [ ] View randomized news headlines in a sidebar
--   [ ] Click news article link to navigate to news article website
 
 
 ### Wireframes
