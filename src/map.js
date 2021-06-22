@@ -1,6 +1,7 @@
 import { select, json, geoPath, tsv } from 'd3';
 import { feature } from 'topojson-client';
 
+
 const svg = select('svg')
     .attr('width', 960)
     .attr('height', 1000)
@@ -22,3 +23,5 @@ json('https://d3js.org/us-10m.v1.json')
             .text(d => d.id)
         // gives state id as tooltip, need to change to name
     });
+
+
