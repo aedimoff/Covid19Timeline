@@ -7,8 +7,10 @@ const PORT = process.env.PORT || 5000;
 app.unsubscribe(express.static('public'))
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, './public/index.html'))
+    res.sendFile(path.join(__dirname, './dist/index.html'))
 })
+
+app.get('/')
 
 app.listen(PORT, () => {
     console.log(__dirname);
