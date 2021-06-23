@@ -1,7 +1,6 @@
 import * as Map from './map';
 import axios from "axios";
 import './stylesheets/style.scss'
-const api_key = require("../config/keys").API_KEY
 
 document.addEventListener('DOMContentLoaded', () => {
 

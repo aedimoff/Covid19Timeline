@@ -1,5 +1,4 @@
 // import axios from 'axios';
-// const api_key = require("../config/keys").API_KEY
 
 // export const getData = (start = '2021-01-01', end = '2021-01-30', code = 'CO') => {
 //     axios.request({

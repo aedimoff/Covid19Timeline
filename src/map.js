@@ -1,7 +1,6 @@
 import { select, json, geoPath, tsv } from 'd3';
 import { feature } from 'topojson-client';
 import axios from 'axios';
-const api_key = require("../config/keys").API_KEY
 
 const requestData = (start = '2021-01-01', end = '2021-01-30', code = 'CO') => {
     return new Promise((resolve, reject) => {
@@ -80,3 +79,6 @@ json('https://d3js.org/us-10m.v1.json')
     });
 
 
+
+
+    
