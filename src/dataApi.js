@@ -1,26 +1,18 @@
-// import axios from 'axios';
-// const api_key = require("../config/keys").API_KEY
+import fetch from 'node-fetch';
+const api_key = require("../config/keys").API_KEY
 
-// export const getData = (start = '2021-01-01', end = '2021-01-30', code = 'CO') => {
-//     axios.request({
-//         method: 'GET',
-//         url: 'https://covid-19-usa-data-by-zt.p.rapidapi.com/GetUSHistoricalDataBetweenDatesForState',
-//         params: { end_date: end, start_date: start, statecode: code },
-//         headers: {
-//             'x-rapidapi-key': api_key,
-//             'x-rapidapi-host': 'covid-19-usa-data-by-zt.p.rapidapi.com'
-//         }
-//     }).then(res => {
-//         let count = 0
-//         res.data.records.forEach(day => {
-//             count += parseInt(day.cases.dailyconfirmed)
-//         });
-//         console.log(count)
-//         return count;
-
-//     })
-
-//         .catch(function (error) {
-//             console.error(error);
-//         });
-// }
+export const getData = (start = '2021-01-01', end = '2021-01-30', code = 'CO') => {
+    fetch("https://covid-19-usa-data-by-zt.p.rapidapi.com/GetUSStateCodesAndNames", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "cea3f490acmshc761a76968cd96cp1b362ejsn0742e741fccd",
+            "x-rapidapi-host": "covid-19-usa-data-by-zt.p.rapidapi.com"
+        }
+    })
+        .then(response => {
+            console.log(response);
+        })
+        .catch(err => {
+            console.error(err);
+        });
+}
