@@ -32,13 +32,16 @@ Promise.all([
     json(jsonUrl)
 ]).then(([topoJSONData, covidData]) => {
     //this will be a function call later
-    
+    const date = 'AU20'
+    covidData.forEach(month => {
+        let states = Object.keys(month[date])
+            console.log(states)
+    })
     const setColor = (date, id) => {
         console.log(covidData[date])
     }
 
     const states = feature(topoJSONData, topoJSONData.objects.states)
-    console.log("states", states)
     svg.selectAll('path').data(states.features)
     .enter().append('path')
         .attr('class', 'state')
