@@ -4,3 +4,5 @@ bundle.js.map
 .env
 ./config/keys.js
 keys.js
+/keys
+/keys.js
