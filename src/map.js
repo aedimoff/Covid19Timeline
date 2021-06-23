@@ -1,7 +1,6 @@
 import { select, json, geoPath, csv, tsv } from 'd3';
 import { feature } from 'topojson-client';
 import axios from 'axios';
-const api_key = require("../config/keys").API_KEY
 
 // const requestData = (start = '2021-01-01', end = '2021-01-30', code = 'CO') => {
 //     return new Promise((resolve, reject) => {
@@ -71,4 +70,26 @@ const colors = (code) => {
 }
 
 
+
+console.log("stats", stats)
+json('https://d3js.org/us-10m.v1.json')
+    .then(data => {
+        const states = feature(data, data.objects.states)
+        const stats = getData()
+        console.log("in json", stats)
+        svg.selectAll('path').data(states.features)
+            .enter().append('path')
+            .attr('class', 'state')
+            .attr('id',(d => d.id))
+            .attr('d', path)
+            .attr('fill', (d => colors(d.id)))
+            .append('title')
+            .text(d => d.id)
+        // gives state id as tooltip, need to change to name
+    });
+
+
+
+
+    
 
