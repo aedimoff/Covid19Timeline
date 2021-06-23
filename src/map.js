@@ -14,6 +14,7 @@ const path = geoPath()
 
 json('https://d3js.org/us-10m.v1.json')
     .then(data => {
+        console.log(svg)
         const states = feature(data, data.objects.states)
         // const stats = getData()
         // console.log("IN JSON", stats)
