@@ -19,7 +19,7 @@ export const dateCodes = ({
     1 : "AP20",
     2 : "MY20",
     3 : "JU20",
-    4 : "JY20",
+    4 : "JL20",
     5 : "AU20",
     6 : "SE20",
     7 : "OC20",
