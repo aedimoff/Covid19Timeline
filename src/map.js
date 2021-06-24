@@ -1,8 +1,10 @@
 import { select, json, geoPath, tsv } from 'd3';
 import { feature } from 'topojson-client';
 import axios from 'axios';
+const api_key = require('../config/keys')
 
-// const requestData = (start = '2021-01-01', end = '2021-01-30', code = 'CO') => {
+
+// const requestData = (start, end, code) => {   
 //     return new Promise((resolve, reject) => {
 //         axios.request({
 //             method: 'GET',
@@ -22,6 +24,29 @@ import axios from 'axios';
 //     });
 // };
 
+// requestData("2020-09-01", '2020-09-31', "CO")
+
+
+// const states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KA", "KT", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR","PA","RI","SC","SD","TN","TX","UT","VT","VA", "WA", "WV","WI","WY"]
+
+
+// const plz = () => {
+//     const start = '2021-03-01'
+//     const end = '2021-03-31'
+//     states.forEach((state, i) => {
+//         requestData(start, end, state).then(res => {
+//             console.log(states[i])
+//             let data = res.data.records
+//             let count = 0;
+//             data.forEach(day => {
+//                 count += parseInt(day.cases.dailyconfirmed)
+//             })
+//             console.log(count)
+//         })
+//     })
+// }
+
+// console.log("itsokay", plz())
 
 const jsonUrl = 'https://gist.githubusercontent.com/aedimoff/43582253126b56f90b942f80eee13156/raw/statesnumeric.json'
 
@@ -34,8 +59,6 @@ Promise.all([
     //this will be a function call later
     // const selectedMonth = getSlider()
 function getStatsByMonth(selectedMonth, stateId) {
-        console.log("month in getStatsByMonth", selectedMonth)
-        console.log("ID in getStatsByMonth", stateId)
     let stats;
 
     covidData.forEach(dataSet => {
