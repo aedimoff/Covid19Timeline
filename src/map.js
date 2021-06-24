@@ -23,7 +23,7 @@ import axios from 'axios';
 // };
 
 
-const jsonUrl = 'https://gist.githubusercontent.com/aedimoff/87cfc8efa16c8c08ca4ef83bc8afbe50/raw/stats.json'
+const jsonUrl = 'https://gist.githubusercontent.com/aedimoff/43582253126b56f90b942f80eee13156/raw/statesnumeric.json'
 
 
 
@@ -32,22 +32,49 @@ Promise.all([
     json(jsonUrl)
 ]).then(([topoJSONData, covidData]) => {
     //this will be a function call later
-    
-    const setColor = (date, id) => {
-        console.log(covidData[date])
-    }
+    // const selectedMonth = getSlider()
+function getStatsByMonth(selectedMonth, stateId) {
+        console.log("month in getStatsByMonth", selectedMonth)
+        console.log("ID in getStatsByMonth", stateId)
+    let stats;
 
-    const states = feature(topoJSONData, topoJSONData.objects.states)
-    console.log("states", states)
-    svg.selectAll('path').data(states.features)
-    .enter().append('path')
-        .attr('class', 'state')
-        .attr('id',(d => d.id))
-        .attr('d', path)
-        .attr('fill', (d => colors(d.id)))
-    .append('title')
-        .text(d => d.id)
-    // gives state id as tooltip, need to change to name
+    covidData.forEach(dataSet => {
+        for(let date in dataSet) {
+            if(date == selectedMonth) {
+                stats = dataSet[date][stateId]
+            }
+        }
+    })
+    return stats;
+}
+
+function setColor(selectedMonth, stateId) {
+    let stats = getStatsByMonth(selectedMonth, stateId)
+    if(stats < 1000) {
+        return "lightgreen"
+    } else if(stats > 1000 && stats <= 5000) {
+        return "lightblue"
+    } else if(stats > 5000 && stats <= 10000) {
+        return "yellow" 
+    } else if (stats > 10000 && stats <= 30000) {
+        return "orange"
+    } else if (stats > 30000) {
+        return "red"
+    }
+    
+}
+
+
+const states = feature(topoJSONData, topoJSONData.objects.states)
+svg.selectAll('path').data(states.features)
+.enter().append('path')
+    .attr('class', 'state')
+    .attr('id',(d => d.id))
+    .attr('d', path)
+    .attr('fill', (d => setColor("AP20", d.id)))
+.append('title')
+    .text(d => d.id)
+// gives state id as tooltip, need to change to name
 });
 
         // let count = 0
