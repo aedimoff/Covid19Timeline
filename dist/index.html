@@ -9,8 +9,13 @@
     </head>
 
     <body>
-        <svg width="960" height="500"></svg>
+        <div class="map-container">
+            <svg  width="960" height="400"></svg>
+        </div>
+        <div class="slider-container">
+            <input type="range" min="1" max="15" value="1" id="range-slider" class="slider">
+            <p> Date: <span id="value"></span> </p>
+        </div>
         <script src="bundle.js"></script>
     </body>
-
 </html>
