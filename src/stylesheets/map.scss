@@ -1,6 +1,12 @@
+@import 'variables';
 .map-container {
     height: 70vh;
-    width: 90vw;
+    width: 75vw;
+    display: block;
+    margin: auto;
+    position: absolute;
+    left: 6%;
+    top: 14%;
 }
 
 .state {
@@ -11,3 +17,6 @@
 .state:hover {
     fill: blue;
 }
+
+// .svg {
+// }
