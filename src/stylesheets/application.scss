@@ -1,7 +1,54 @@
+@import 'variables';
 body {
     margin: 0px;
     overflow: hidden;
-    background-color: black;
+    background-color: $dark-blue;
+}
+
+.page-header {
+    position: relative;
+    text-align: center;
+    padding-top: 33px;
+    font-size: 50px;
+    color: $light-blue;
+    font-family: $main-font;
+}
+
+.page-header::after {
+    content: "";
+    height: 0.5px;
+    width: 70%;
+    background: rgb(201, 207, 215);
+    position: absolute;
+    left: 14%;
+    bottom: -25%;
+    opacity: 0.7;
 }
 
 
+.content-container {
+    display: flex;
+}
+
+.news-container {
+    height: 64vh;
+    position: absolute;
+    left: 93%;
+    top: 15%;
+}
+
+.news {
+    background: $light-blue;
+    display: flex;
+    width: 20vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    border-radius: 9px;
+    box-sizing: border-box;
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+    opacity: 0.7;
+    min-height: 58vh;
+    max-width: 250px;
+}

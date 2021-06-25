@@ -1,19 +1,24 @@
+@import 'variables';
 
 .slider-container {
-    width: 70%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    position: absolute;
+    top: 91%;
+    left: 12%;
 }
 
 .slider {
     -webkit-appearance: none;
-    width: 60%;
-    height:25px;
-    background: red;
-    outline: none;
+    width: 65%;
+    height: 20px;
+    background: #c9cfd7;
     opacity: 0.7;
-    -webkit-transition: 0.2s;
-    transition: opacity 0.2s;
-    border-radius: 8px;
-    box-shadow: 0px 1px 10px 1px black;
+    border-radius: 5px;
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+    margin-top: 60px;
 }
 
 .slider:hover {
@@ -23,8 +28,8 @@
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 20px;
-    height: 40px;
+    width: 15px;
+    height: 34px;
     background: white;
     border-radius: 20%;
     cursor: pointer;
@@ -38,10 +43,11 @@
     cursor: pointer;
 }
 
-p {
-    color: white;
+h3 {
+    color: $light-blue;
     margin-top: 24px;
     opacity: 0.7;
+    font-size: 23px
 }
 
 // .slider::after {
