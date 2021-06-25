@@ -32,23 +32,49 @@ body {
 
 .news-container {
     height: 64vh;
+    width: 20vw;
     position: absolute;
     left: 93%;
     top: 15%;
-}
-
-.news {
+    overflow-y: auto;
     background: $light-blue;
-    display: flex;
-    width: 20vw;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     z-index: 3;
     border-radius: 9px;
     box-sizing: border-box;
     box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
-    opacity: 0.7;
-    min-height: 58vh;
-    max-width: 250px;
+    // opacity: 0.7;
+}
+
+#news {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.news-image {
+    width: 100%;
+    border-radius: 2px;
+}
+
+.news-item {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    padding: 16px 10px 20px 5px;
+    box-sizing: border-box;
+    border-bottom: 3px solid white;
+}
+
+.news-header {
+    font-weight: bold;
+    margin-bottom: 8px;
+    margin-top: 5px;
+}
+
+.news-link {
+    color: black;
+    align-self: center;
 }
