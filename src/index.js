@@ -4,7 +4,7 @@ import './stylesheets/map.scss'
 import './stylesheets/slider.scss'
 const api_key = require('../config/keys').API_KEY;
 import {getDates} from './dates'
-import { renderMap } from './map'
+import Map from './map'
 
 
 

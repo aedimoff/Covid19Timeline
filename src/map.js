@@ -53,20 +53,30 @@ const jsonUrl = 'https://gist.githubusercontent.com/aedimoff/43582253126b56f90b9
     function setColor(selectedMonth, stateId) {
         let stats = getStatsByMonth(selectedMonth, stateId)
         if(stats < 5000) {
-            return "rgb(201, 207, 215)"
+            return "rgb(201, 207, 215)" //$light-blue
         } else if(stats > 5000 && stats <= 10000) {
-            return "rgb(246, 217, 176)"
-        } else if(stats > 10000 && stats <= 30000) {
-            return "rgb(254, 190, 114)" 
-        } else if (stats > 30000 && stats <= 100000) {
-            return "rgb(207, 104, 93)"
-        } else if (stats > 100000) {
-            return "rgb(149, 50, 49)"
+            return "rgb(166, 185, 211)" //$may-blue
+        } else if(stats > 10000 && stats <= 50000) {
+            return "rgb(246, 217, 176)" //$light-yellow
+        } else if(stats > 10000 && stats <= 50000) {
+            return "rgb(254, 190, 114)" //$yellow
+        } else if(stats > 50000 && stats <= 75000) {
+            return "rgb(228, 131, 85)" //$dark-yellow
+        } else if (stats > 75000 && stats <= 100000) {
+            return "rgb(207, 104, 93)" //$salmon
+        } else if (stats > 100000 && stats <= 200000) {
+            return "rgb(196, 72, 58)" //$orange
+        } else if (stats > 200000 && stats <= 300000) {
+            return "rgb(201, 55, 52);" //$red
+        } else if (stats > 300000) {
+            return "rgb(174, 22, 20)" //$bright-red
         }
         
     }
 
 });
+
+
 
 
 
