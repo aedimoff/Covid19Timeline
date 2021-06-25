@@ -3,7 +3,7 @@ import './stylesheets/application.scss'
 import './stylesheets/map.scss'
 import './stylesheets/slider.scss'
 const api_key = require('../config/keys').API_KEY;
-import {getDates} from './dates'
+import {getDates, getMonth} from './dates'
 import { renderMap } from './map'
 
 
@@ -16,12 +16,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     output.innerHTML = getDates[1]
+    getNews(getMonth[1])
 
     slider.oninput = function() {
         output.innerHTML = getDates[this.value];
+        document.getElementById("news").remove()
+        console.log("value", this.value)
+        console.log("month", getMonth[this.value])
+        getNews(getMonth[this.value])        
     }
- const getNews = () => {
-        fetch("https://covid-19-news.p.rapidapi.com/v1/covid?q=covid&lang=en&from=2020-05-01&to=2020-05-31&country=US&media=True", {
+
+
+ function getNews(date) {
+        fetch(`https://covid-19-news.p.rapidapi.com/v1/covid?q=covid&lang=en&from=${date}-01&to=${date}-31&country=US&media=True`, {
             "method": "GET",
             "headers": {
                 "x-rapidapi-key": api_key,
@@ -70,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    getNews()
+
 
 
 })
