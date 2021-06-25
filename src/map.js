@@ -1,7 +1,7 @@
 import { select, json, geoPath, tsv } from 'd3';
 import { feature } from 'topojson-client';
 
-import {getDates, dateCodes} from './dates'
+import {dateCodes} from './dates'
 const jsonUrl = 'https://gist.githubusercontent.com/aedimoff/43582253126b56f90b942f80eee13156/raw/statesnumeric.json'
 
     Promise.all([
@@ -30,7 +30,6 @@ const jsonUrl = 'https://gist.githubusercontent.com/aedimoff/43582253126b56f90b9
 
     d3.selectAll("input").on("input", function change() {
         const date = dateCodes[this.value];
-        console.log(date)
         d3.selectAll("path").style("fill", function (d) {
             return setColor(date, d.id)
         })

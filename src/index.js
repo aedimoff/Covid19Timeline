@@ -2,10 +2,8 @@ import './stylesheets/reset.scss'
 import './stylesheets/application.scss'
 import './stylesheets/map.scss'
 import './stylesheets/slider.scss'
-import axios from 'axios'
-import { select, json, geoPath, tsv } from 'd3';
-
-import {getDates, dateCodes} from './dates'
+const api_key = require('../config/keys').API_KEY;
+import {getDates} from './dates'
 import { renderMap } from './map'
 
 
@@ -22,40 +20,50 @@ document.addEventListener('DOMContentLoaded', () => {
     slider.oninput = function() {
         output.innerHTML = getDates[this.value];
     }
-//     const requestNews = () => {   
-//     return new Promise((resolve, reject) => {
-//         axios.request({
-//             method: 'GET',
-//             url: 'https://covid-19-news.p.rapidapi.com/v1/covid',
-//             params: {
-//                 q: 'covid',
-//                 lang: 'en',
-//                 from: '2020/05/01',
-//                 to: '2020/05/31',
-//                 sort_by: 'relevancy',
-//                 sources: 'nytimes.com, cnn.com, forbes.com, usnews.com, abcnews.go.com, wsj.com, cbsnews.com, washingtonpost.com, time.com, newyorker.com, foxnews.com, bbc.com, theglobeandmail.com',
-//                 search_in: "title",
-//                 country: 'US',
-//                 media: 'True',
-//                 topic: "news"
-//             },
-//             headers: {
-//                 'x-rapidapi-key': api_key,
-//                 'x-rapidapi-host': 'covid-19-news.p.rapidapi.com'
-//             }
-//         }).then(response => {
-//             resolve(response.data)
-//         })
-//             .catch(error => {
-//                 console.error('auth.error', error);
-//                 reject(error)
-//             });
-//     });
-// };
+ const getNews = () => {
+        fetch("https://covid-19-news.p.rapidapi.com/v1/covid?q=covid&lang=en&from=2020-05-01&to=2020-05-31&country=US&media=True", {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-key": api_key,
+                "x-rapidapi-host": "covid-19-news.p.rapidapi.com"
+            }
+        })
+        .then(response => {
+            return response.json();
+        }).then(data => {
+            let articles = data.articles.slice(0, 5)
+            articles.forEach(article => {
+                //creates list item as container
+                let listItem = document.createElement('ul');
+                listItem.className = "news-item"
 
+                //creates h1 tag and inserts text
+                let header = document.createElement('h1')
+                header.className = "news-header"
+                let headertext = document.createTextNode(`${article.title}`)
+                header.appendChild(headertext)
 
+                //creates a tag and insterts text 
+                let link = document.createElement('a')
+                link.className = "news-link"
+                let linktext = document.createTextNode(`${article.link}`)
+                link.title = "Read Article"
+                link.appendChild(linktext)
 
-// requestNews().then(res => {console.log(res.articles)})
+                //apends header and link to list item
+                listItem.appendChild(header)
+                listItem.appendChild(link)
+
+                document.getElementById('news').appendChild(listItem)
+            })
+            console.log(articles)
+        }).catch(error => {
+            console.log(error)
+        });
+
+    }
+
+    getNews()
 
 
 })
