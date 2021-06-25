@@ -31,11 +31,17 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => {
             return response.json();
         }).then(data => {
-            let articles = data.articles.slice(0, 5)
+            let articles = data.articles.slice(0, 10)
+            console.log(articles)
             articles.forEach(article => {
                 //creates list item as container
                 let listItem = document.createElement('ul');
                 listItem.className = "news-item"
+
+                //creates img and adds image
+                let image = document.createElement('img')
+                image.className = "news-image"
+                image.src = "news_image.jpg"
 
                 //creates h1 tag and inserts text
                 let header = document.createElement('h1')
@@ -46,17 +52,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 //creates a tag and insterts text 
                 let link = document.createElement('a')
                 link.className = "news-link"
-                let linktext = document.createTextNode(`${article.link}`)
+                let linktext = document.createTextNode(`Read Article`)
                 link.title = "Read Article"
+                link.href = `${article.link}`
                 link.appendChild(linktext)
 
                 //apends header and link to list item
+                listItem.appendChild(image)
                 listItem.appendChild(header)
                 listItem.appendChild(link)
 
                 document.getElementById('news').appendChild(listItem)
             })
-            console.log(articles)
         }).catch(error => {
             console.log(error)
         });
