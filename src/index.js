@@ -20,11 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     slider.oninput = function() {
         output.innerHTML = getDates[this.value];
-        document.getElementById("news").remove()
+        console.log(this.value)
+        // document.getElementById("news").remove()
         getNews(getMonth[this.value])        
     }
 
 
+
+//2020-05-01
  function getNews(date) {
         fetch(`https://covid-19-news.p.rapidapi.com/v1/covid?q=covid&lang=en&from=${date}-01&to=${date}-31&country=US&media=True`, {
             "method": "GET",
