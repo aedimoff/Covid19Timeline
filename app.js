@@ -4,12 +4,12 @@ const app = express();
 const path = require('path');
 require('dotenv').config();
 
+app.use(express.static('public'))
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './dist/index.html'))
 })
 
             
-app.use(express.static('public'))
              
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
