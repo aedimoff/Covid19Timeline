@@ -4,7 +4,7 @@ import './stylesheets/map.scss'
 import './stylesheets/slider.scss'
 const api_key = require('../config/keys').API_KEY;
 import {getDates, getMonth} from './dates'
-import { renderMap } from './map'
+import Map from './map'
 
 
 
@@ -21,8 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     slider.oninput = function() {
         output.innerHTML = getDates[this.value];
         document.getElementById("news").remove()
-        console.log("value", this.value)
-        console.log("month", getMonth[this.value])
         getNews(getMonth[this.value])        
     }
 
