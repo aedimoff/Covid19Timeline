@@ -3,7 +3,7 @@ import './stylesheets/application.scss'
 import './stylesheets/map.scss'
 import './stylesheets/slider.scss'
 const api_key = require('../config/keys').API_KEY;
-import {getDates} from './dates'
+import {getDates, getMonth} from './dates'
 import Map from './map'
 
 
@@ -16,12 +16,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     output.innerHTML = getDates[1]
+    getNews("2020-05")
 
     slider.oninput = function() {
         output.innerHTML = getDates[this.value];
+        let node = document.getElementById("news")
+        while (node.firstChild) {
+            node.removeChild(node.firstChild)
+        }
+        getNews(getMonth[this.value])        
     }
- const getNews = () => {
-        fetch("https://covid-19-news.p.rapidapi.com/v1/covid?q=covid&lang=en&from=2020-05-01&to=2020-05-31&country=US&media=True", {
+
+
+function getNews(date) {
+     let url = `https://covid-19-news.p.rapidapi.com/v1/covid?q=covid&lang=en&from=${date}-01&to=${date}-28&country=US&media=True`
+        fetch(url, {
             "method": "GET",
             "headers": {
                 "x-rapidapi-key": api_key,
@@ -32,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         }).then(data => {
             let articles = data.articles.slice(0, 10)
-            console.log(articles)
             articles.forEach(article => {
                 //creates list item as container
                 let listItem = document.createElement('ul');
@@ -70,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    getNews()
+
 
 
 })
