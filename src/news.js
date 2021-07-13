@@ -12,8 +12,13 @@ export const getNews = (date) => {
         .then(response => {
             return response.json();
         }).then(data => {
-            let articles = data.articles.slice(0, 10)
-            articles.forEach(article => {
+            //create array of 10 randomized articles
+            let articles = [];
+            while (articles.length < 10) {
+                let i = randomNum(data.articles.length)
+                articles.push(data.articles.splice(i, 1));
+            } 
+            articles.flat().forEach(article => {
                 //creates list item as container
                 let listItem = document.createElement('ul');
                 listItem.className = "news-item"
@@ -50,4 +55,8 @@ export const getNews = (date) => {
 
     }
 
+
+function randomNum(size) {
+  return Math.floor(Math.random() * size);
+}
 
