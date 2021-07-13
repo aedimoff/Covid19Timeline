@@ -14,7 +14,7 @@ const legendValues = [
   // {value: "< 5000", color: "#c9cfd7"}
 ];
 
-const rowHeight = 25;
+const rowHeight = 30;
 
 legendValues.map((legendValue, index) => {
   const yCoord = (index + 1) * rowHeight;
@@ -31,7 +31,7 @@ legendValues.map((legendValue, index) => {
   const yCoord = (index + 1) * rowHeight;
   legendSvg
     .append("text")
-    .attr("x", 50)
+    .attr("x", 60)
     .attr("y", yCoord + 1)
     .text(legendValue.value)
     .attr("alignment-baseline", "middle")
