@@ -1,18 +1,14 @@
-import { select, json, geoPath, tsv } from 'd3';
+import { select, json, geoPath } from 'd3';
 import { feature } from 'topojson-client';
 
 import {dateCodes} from './dates'
 const jsonUrl = 'https://gist.githubusercontent.com/aedimoff/43582253126b56f90b942f80eee13156/raw/statesnumeric.json'
-
     Promise.all([
         json('https://d3js.org/us-10m.v1.json'),
         json(jsonUrl)
     ]).then(([topoJSONData, covidData]) => {
 
-    const svg = select('svg')
-    // .attr('width', 90vw)
-    // .attr('height', 1000)
-
+    const svg = select('#map-svg')
     const path = geoPath()
 
     const states = feature(topoJSONData, topoJSONData.objects.states)

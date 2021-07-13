@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="utf-8">
-        <title>USA Map</title>
-        <script src="https://d3js.org/d3.v7.min.js"></script>
-        <script src="https://unpkg.com/topojson-client@3"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <div class="page-header">
-            Covid-19 Timeline
+<head>
+    <meta charset="utf-8">
+    <title>USA Map</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/topojson-client@3"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="page-header"> Covid-19 Timeline </div>
+    <svg class="color-legend" id="color-legend"></svg>
+    <div class="map-container">
+        <svg id="map-svg" height="100%" width="85%" viewBox="-25 0 950 600"></svg>
+        <div class="slider-container">
+            <input type="range" min="1" max="14" value="1" id="range-slider" class="slider">
+            <h3> Date: <span id="value"></span> </h3>
         </div>
-            <div class="color-legend" id="color-legend"></div>
-            <div class="map-container">
-                <svg height="100%" width="85%" viewBox="-25 0 950 600"></svg>
-                <div class="slider-container">
-                    <input type="range" min="1" max="14" value="1" id="range-slider" class="slider">
-                    <h3> Date: <span id="value"></span> </h3>
-                </div>
-            <div class="news-container">
-                <div id="news">
-                </div>
-            </div>
+        <div class="news-container">
+            <div id="news" />
         </div>
-        <script src="bundle.js"></script>
-    </body>
+    </div>
+    <script src="bundle.js"></script>
+</body>
+
 </html>

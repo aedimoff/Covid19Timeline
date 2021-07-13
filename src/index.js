@@ -8,8 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let slider = document.getElementById('range-slider')
     let output = document.getElementById('value')
-
-
+    
     output.innerHTML = getDates[1]
     getNews("2020-05")
 

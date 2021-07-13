@@ -1,6 +1,7 @@
-import { select } from 'd3';
+import { select, range, scaleOrdinal, color, svg } from 'd3';
 
 var legendSvg = select("#color-legend")
+console.log("HERE??SDFDF")
 
 const legendValues = [
     {value: "> 300,000", color: "#ae1614"},
@@ -25,3 +26,8 @@ legendValues.map((legendValue, index) => {
     const yCoord = index * rowHeight
     legendSvg.append("text").attr("x", 50).attr("y", yCoord).text(legendValue.value).style("font-size", "15px").attr("alignment-baseline","middle")
 })
+
+// legendSvg.append("circle").attr("cx",200).attr("cy",130).attr("r", 6).style("fill", "#69b3a2")
+
+
+
