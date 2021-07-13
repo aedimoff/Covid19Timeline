@@ -1,0 +1,32 @@
+@import 'variables';
+
+.color-legend {
+    display: flex;
+    align-items: center;
+    height: 25vh;
+    width: 10vw;
+    min-height: 200px;
+    min-width: 120px;
+    padding: 3px;
+    position: absolute;
+    left: 4%;
+    top: 33%;
+    background: #c9cfd7;
+    border-radius: 9px;
+    box-sizing: border-box;
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+}
+
+.color-legend-header {
+    color: $light-blue;
+    font-family: $main-font;
+    width: 11vw;
+    border-bottom: 1px solid $light-blue;
+    text-align: center;
+    padding-bottom: 5px;
+    position: absolute;
+    top: 29%;
+    left: 3.5%;
+}
+
+

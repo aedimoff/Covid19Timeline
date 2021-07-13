@@ -2,6 +2,7 @@
 @import 'variables';
 @import 'map';
 @import 'slider';
+@import 'color-legend';
 
 
 body {
@@ -35,27 +36,13 @@ body {
     display: flex;
 }
 
-.color-legend {
-    display: flex;
-    align-items: center;
-    height: 24vh;
-    width: 8vw;
-    padding: 3px;
-    position: absolute;
-    left: 5%;
-    top: 33%;
-    background: #c9cfd7;
-    border-radius: 9px;
-    box-sizing: border-box;
-    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
-}
-
 .news-container {
     height: 64vh;
     width: 15vw;
     position: absolute;
     left: 94%;
     top: 8%;
+    margin-top: 5px;
     overflow-y: auto;
     background: #c9cfd7;
     z-index: 3;
@@ -69,8 +56,19 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
 
-
+.news-header {
+    color: $light-blue;
+    font-family: $main-font;
+    font-size: 20px;
+    text-align: center;
+    width: 13vw;
+    border-bottom: 1px solid #c9cfd7;
+    padding-bottom: 5px;
+    position: absolute;
+    top: 2%;
+    left: 95%;
 }
 
 .news-image {
@@ -87,7 +85,7 @@ body {
     border-bottom: 3px solid white;
 }
 
-.news-header {
+.news-item-header {
     font-weight: bold;
     margin-bottom: 8px;
     margin-top: 5px;

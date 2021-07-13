@@ -11,6 +11,7 @@
 
 <body>
     <div class="page-header"> Covid-19 Timeline </div>
+    <h2 class="color-legend-header">Active Cases by State</h2>
     <svg class="color-legend" id="color-legend"></svg>
     <div class="map-container">
         <svg id="map-svg" height="100%" width="85%" viewBox="-25 0 950 600"></svg>
@@ -18,10 +19,9 @@
             <input type="range" min="1" max="14" value="1" id="range-slider" class="slider">
             <h3> Date: <span id="value"></span> </h3>
         </div>
-        <div class="news-container">
-            <div id="news" />
-        </div>
+        <div class="news-container"> <div id="news"/> </div>
     </div>
+    <h2 class="news-header">Historical Headlines</h2>
     <script src="bundle.js"></script>
 </body>
 

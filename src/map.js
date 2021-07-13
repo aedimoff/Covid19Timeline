@@ -1,7 +1,8 @@
 import { select, json, geoPath } from 'd3';
 import { feature } from 'topojson-client';
+import { dateCodes } from './dates'
+import { stateNames } from './states';
 
-import {dateCodes} from './dates'
 const jsonUrl = 'https://gist.githubusercontent.com/aedimoff/43582253126b56f90b942f80eee13156/raw/statesnumeric.json'
     Promise.all([
         json('https://d3js.org/us-10m.v1.json'),
@@ -19,8 +20,8 @@ const jsonUrl = 'https://gist.githubusercontent.com/aedimoff/43582253126b56f90b9
         .attr('d', path)
         .attr('fill', (d => setColor(dateCodes[1], d.id)))
     .append('title')
-        .text(d => d.id)
-    // gives state id as tooltip, need to change to name
+        .text(d => stateNames[d.id])
+    // gives state id as tooltip
     
 
 

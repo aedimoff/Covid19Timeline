@@ -25,7 +25,7 @@ export const getNews = (date) => {
 
                 //creates h1 tag and inserts text
                 let header = document.createElement('h1')
-                header.className = "news-header"
+                header.className = "news-item-header"
                 let headertext = document.createTextNode(`${article.title}`)
                 header.appendChild(headertext)
 
