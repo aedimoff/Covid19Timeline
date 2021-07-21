@@ -31,8 +31,7 @@ export const getNews = (date) => {
         let idx = randomNum(images.length)
         let src = images.splice(idx, 1)
         image.className = "news-image";
-        console.log(src[0].toString())
-        image.src = src[0].toString();
+        image.src = `${src[0].toString()}.jpg`;
 
         //creates h1 tag and inserts headline text
         let header = document.createElement("h1");

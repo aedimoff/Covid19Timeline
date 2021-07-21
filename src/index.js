@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let output = document.getElementById('value')
     
     output.innerHTML = getDates[1]
-    getNews("2020-06")
+    getNews("2020-04")
 
     slider.oninput = function() {
         output.innerHTML = getDates[this.value];
