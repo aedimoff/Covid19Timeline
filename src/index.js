@@ -20,9 +20,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         getNews(getMonth[this.value])        
     }
-
-
-
-
 })
 
