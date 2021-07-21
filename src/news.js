@@ -27,8 +27,11 @@ export const getNews = (date) => {
 
         //creates img and adds image
         let image = document.createElement("img");
+        let images = urls
+        let idx = randomNum(images.length)
+        let src = images.splice(idx, 1)
         image.className = "news-image";
-        image.src = "news_image.jpg";
+        image.src = `${src[0].toString()}.jpg`;
 
         //creates h1 tag and inserts headline text
         let header = document.createElement("h1");
@@ -72,3 +75,46 @@ export const getNews = (date) => {
 function randomNum(size) {
   return Math.floor(Math.random() * size);
 }
+
+let urls = [
+  "img-1",
+  "img-2",
+  "img-3",
+  "img-4",
+  "img-5",
+  "img-6",
+  "img-7",
+  "img-8",
+  "img-9",
+  "img-10",
+  "img-11",
+  "img-12",
+  "img-13",
+  "img-14",
+  "img-15",
+  "img-16",
+  "img-17",
+  "img-18",
+  "img-19",
+  "img-20",
+  "img-21",
+  "img-22",
+  "img-23",
+  "img-24",
+  "img-25",
+  "img-26",
+  "img-27",
+  "img-28",
+  "img-29",
+  "img-30",
+  "img-31",
+  "img-32",
+  "img-33",
+  "img-34",
+  "img-35",
+  "img-36",
+  "img-37",
+  "img-38",
+  "img-39",
+  "img-40",
+];
