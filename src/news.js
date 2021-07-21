@@ -10,6 +10,7 @@ export const getNews = (date) => {
             }
         })
         .then(response => {
+            console.log(response)
             return response.json();
         }).then(data => {
             //create array of 10 randomized articles
