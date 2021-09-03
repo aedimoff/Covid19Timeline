@@ -8,7 +8,7 @@ const config = {
     filename: 'bundle.js'
   },
   mode: "development",
-  target: "node",
+  // target: "node",
   resolve: {
     fallback: {
       "os": require.resolve("os-browserify/browser"),

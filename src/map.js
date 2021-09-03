@@ -2,9 +2,11 @@ import { select, json, geoPath } from 'd3';
 import { feature } from 'topojson-client';
 import { dateCodes } from './dates'
 import { stateNames } from './states';
+import { Octokit } from '@octokit/core';
 
 const jsonUrl = 'https://gist.githubusercontent.com/aedimoff/43582253126b56f90b942f80eee13156/raw/statesnumeric.json'
-    Promise.all([
+
+Promise.all([
         json('https://d3js.org/us-10m.v1.json'),
         json(jsonUrl)
     ]).then(([topoJSONData, covidData]) => {
@@ -29,8 +31,8 @@ const jsonUrl = 'https://gist.githubusercontent.com/aedimoff/43582253126b56f90b9
         const date = dateCodes[this.value];
         d3.selectAll("path").style("fill", function (d) {
             return setColor(date, d.id)
-        })
-    })
+        });
+    });
 
     function getStatsByMonth(selectedMonth, stateId) {
         let stats;

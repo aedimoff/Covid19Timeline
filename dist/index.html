@@ -6,6 +6,7 @@
     <title>Covid-19 Timeline</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://unpkg.com/topojson-client@3"></script>
+    <!-- window.articles = <script src="https://gist.github.com/aedimoff/450e895e645909469229d0a66c195749.js"></script> -->
     <!-- <script type="text/javascript" src="date.js"></script> -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -27,12 +28,13 @@
     <div class="map-container">
         <svg id="map-svg" height="100%" width="85%" viewBox="-25 0 950 600"></svg>
         <div class="slider-container">
-            <input type="range" min="1" max="14" value="1" id="range-slider" class="slider">
+            <input type="range" min="1" max="17" value="1" id="range-slider" class="slider">
             <h3 class="date"> Date: <span id="value"></span> </h3>
         </div>
         <div class="news-container"> <div id="news"/> </div>
     </div>
     <h2 class="news-header">Historical Headlines</h2>
+    <div id="help"></div>
     <script src="bundle.js"></script>
 </body>
 

@@ -12,7 +12,10 @@ export const getDates = ({
     11 : "February 2021", 
     12 : "March 2021", 
     13 : "April 2021",
-    14 : "May 2021"
+    14 : "May 2021",
+    15: "June 2021",
+    16: "July 2021",
+    17: "August 2021"
 })
 
 export const dateCodes = ({
@@ -29,7 +32,10 @@ export const dateCodes = ({
     11 : "FE21", 
     12 : "MR21", 
     13 : "AP21",
-    14 : "MY21"
+    14 : "MY21",
+    15: "JU21",
+    16: "JL21",
+    17: "AU21"
 })
 
 export const getMonth = ({
@@ -46,5 +52,8 @@ export const getMonth = ({
     11 : "2021-02", 
     12 : "2021-03", 
     13 : "2021-04",
-    14 : "2021-05"
+    14 : "2021-05",
+    15 : "2021-06",
+    16 : "2021-07",
+    17 : "2021-08",
 })

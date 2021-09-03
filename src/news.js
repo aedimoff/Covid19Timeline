@@ -1,46 +1,29 @@
 const api_key = require("../config/keys").API_KEY;
 import { urls, april20 } from "./covidData";
+import { articles } from "./newsArticles"
 
 export const getNews = (date) => {
-  if (date === "2020-04") {
-    return createNewsElements(april20);
-  }
-  let url = `https://covid-19-news.p.rapidapi.com/v1/covid?q=covid&lang=en&from=${date}-01&to=${date}-28&country=US&media=True`;
-
-  fetch(url, {
-    method: "GET",
-    headers: {
-      "x-rapidapi-key": api_key,
-      "x-rapidapi-host": "covid-19-news.p.rapidapi.com",
-    },
-  })
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      createNewsElements(data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  const data = articles[date]
+  createNewsElements(data)
 };
 
 function createNewsElements(data) {
   let articles = [];
   while (articles.length < 10) {
-    let i = randomNum(data.articles.length);
-    articles.push(data.articles.splice(i, 1));
+    let i = randomNum(data.length);
+    articles.push(data.splice(i, 1));
   }
   articles.flat().forEach((article) => {
     //creates list item as container
     let listItem = document.createElement("ul");
     listItem.className = "news-item";
 
-    //creates img and adds image
+    //creates img tag and adds image as src
     let image = document.createElement("img");
     let images = urls;
+
     let idx = randomNum(images.length);
-    let src = images.splice(idx, 1);
+    let src = images.slice(idx, idx +1);
     image.className = "news-image";
     image.src = `${src[0].toString()}.jpg`;
 
